@@ -1,0 +1,75 @@
+---
+title: "JoElKalK"
+author: "8436PoBAssessment25"
+date: "2025-12-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+THE REPORT
+The data set was loaded using package "openxlsx"
+```{r}
+library(openxlsx)
+
+
+A<-read.xlsx('SouthEast.xlsx')
+A
+unique(A$Phusical)
+unique(A$Belief)
+unique(A$Region)
+unique(A$ID)
+unique(A$SES5)
+unique(A$Gender)
+
+B<-read.xlsx('Practical B R.xlsx') # Renaming
+
+names(B)[names(B)=="Name"]<-"ID"   # renaming Name to ID 
+
+B$ID
+
+AB<-merge(A,B,by='ID',all=TRUE)  # merging based on ID 
+```
+
+
+here we merged the entire 
+```{r}
+library(openxlsx)
+Data1<-read.xlsx("A.xlsx")
+Data2<-read.xlsx("B.xlsx")
+Data3<-read.xlsx("P.xlsx")
+
+str(Data1)
+str(Data2)
+str(Data3)
+
+MergedRegion<-merge(Data1,Data2,by="Region",all=TRUE)
+str(MergedRegion)
+unique(MergedRegion$Region)
+MergedRegion2<-merge(MergedRegion,Data3,by="Region",all=TRUE)
+str(MergedRegion2)
+unique(MergedRegion2$Region)
+```
+
